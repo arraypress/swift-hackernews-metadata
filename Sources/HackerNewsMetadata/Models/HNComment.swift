@@ -68,6 +68,11 @@ public struct HNComment: Sendable, Identifiable {
     }
 
     /// This comment followed by all of its descendants, depth-first.
+    /// This comment followed by every descendant, depth-first.
+    ///
+    /// - Important: The result **includes the comment it is called on**, so a
+    ///   whole thread flattens with `roots.flatMap(\.flattened)`. Writing
+    ///   `roots.flatMap { [$0] + $0.flattened }` duplicates every root.
     public var flattened: [HNComment] {
         [self] + children.flatMap(\.flattened)
     }
