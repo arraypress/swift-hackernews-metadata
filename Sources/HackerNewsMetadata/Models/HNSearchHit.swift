@@ -59,19 +59,6 @@ public struct HNSearchHit: Sendable, Identifiable {
     /// For comment hits, the immediate parent item's ID.
     public let parentId: Int?
 
-    // MARK: - Computed
-
-    /// Whether this hit is a comment.
-    public var isComment: Bool { type == "comment" }
-
-    /// Whether this hit is a story.
-    public var isStory: Bool { type == "story" }
-
-    /// The canonical Hacker News URL for this item.
-    public var hnURL: String {
-        "https://news.ycombinator.com/item?id=\(id)"
-    }
-
     /// Creates a Hacker News search hit.
     public init(
         id: Int,

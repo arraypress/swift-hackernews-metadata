@@ -45,11 +45,6 @@ public struct HNStory: Sendable, Identifiable {
     /// The total number of comments in the thread (all descendants).
     public let commentCount: Int
 
-    /// The canonical Hacker News URL for this item.
-    public var hnURL: String {
-        "https://news.ycombinator.com/item?id=\(id)"
-    }
-
     /// Creates a Hacker News story.
     public init(
         id: Int,
